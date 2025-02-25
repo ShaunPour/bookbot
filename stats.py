@@ -1,10 +1,17 @@
+import sys
+import os.path
+
+def get_filepath():
+    return sys.argv[1]
+
 def get_book_content():
-    try:
-        filepath = 'books/frankenstein.txt'
-        with open(filepath, 'r') as file:
-            return file.read()
-    except:
-        print("Error. Filepath not found.")
+        filepath = sys.argv[1]
+        if os.path.exists(filepath):
+            with open(filepath, 'r', encoding='utf-8') as file:
+                return file.read()
+        else:
+            print("Usage: python3 main.py <path_to_book>")
+            sys.exit(1)
 
 def word_count():
     content = get_book_content()

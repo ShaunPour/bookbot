@@ -1,7 +1,8 @@
-from stats import word_count, char_count
+from stats import word_count, char_count, get_filepath
 
 def main():
-    print("============ BOOKBOT ============\nAnalyzing book found at books/frankenstein.txt...")
+    filepath = get_filepath()
+    print(f"============ BOOKBOT ============\nAnalyzing book found at {filepath}...")
     word_count()
     char_counts = char_count()
     print("--------- Character Count -------")
